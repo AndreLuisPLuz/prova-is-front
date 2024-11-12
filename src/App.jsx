@@ -6,7 +6,7 @@ function App() {
   const [list, setList] = useState([]);
 
   const getUsers = async () => {
-    const res = await axios.get(`http://localhost:8080/api/person`, {});
+    const res = await axios.get(`https://exemplozagodeployback.onrender.com/api/person`, {});
     setList(res.data);
     console.log(res.data[0]);
   };
