@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const baseApiUrl = "https://prova-is-back.onrender.com";
+  const baseApiUrl = "http://localhost:8080";
 
   const [list, setList] = useState([]);
 
@@ -15,7 +15,6 @@ function App() {
     try {
       const res = await axios.get(`${baseApiUrl}/api/person`);
       setList(res.data);
-      console.log(res.data); 
     } catch (error) {
       console.error("Erro ao buscar os dados", error);
     }
@@ -34,7 +33,7 @@ function App() {
   const deleteUser = async (id) => {
     try { 
       await axios.delete(`${baseApiUrl}/api/person/${id}`);
-      getUsers()
+      await getUsers()
     } catch (error) {
       console.error("Erro ao inserir", error);
     }
@@ -62,7 +61,7 @@ function App() {
         <td className="px-6 py-4">{user.lastname}</td>
         <td className="px-6 py-4">R${user.salary}</td>
         <td class="px-6 py-4">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={() => {deleteUser(user.id)}}>Delete</a>
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={() => {deleteUser(user._id)}}>Delete</a>
         </td>
       </tr>
     ));
