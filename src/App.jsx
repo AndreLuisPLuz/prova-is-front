@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const baseApiUrl = "http://localhost:8080";
+  const baseApiUrl = "https://prova-is-back.onrender.com";
 
   const [list, setList] = useState([]);
 
